@@ -1,9 +1,19 @@
 KellyRecorderFilterKemono = new Object();
-KellyRecorderFilterKemono.manifest = {host : ['kemono.su', 'kemono.party', 'coomer.party'], detectionLvl : ['imagePreview', 'imageOriginal', 'imageByDocument']};
+// kemono.party -> kemono.su -> kemono.cr, coomer.party -> coomer.su -> coomer.st
+KellyRecorderFilterKemono.hosts = ['kemono.cr', 'kemono.su', 'kemono.party', 'coomer.st', 'coomer.su', 'coomer.party'];
+KellyRecorderFilterKemono.isKemono = function(handler, kemonoOnly) {
+    for (var i = 0; i < KellyRecorderFilterKemono.hosts.length; i++) {
+        if (kemonoOnly && KellyRecorderFilterKemono.hosts[i].indexOf('kemono.') !== 0) continue;
+        if (handler.url.indexOf(KellyRecorderFilterKemono.hosts[i]) != -1) return true;
+    }
+    return false;
+}
+
+KellyRecorderFilterKemono.manifest = {host : KellyRecorderFilterKemono.hosts, detectionLvl : ['imagePreview', 'imageOriginal', 'imageByDocument']};
 
 KellyRecorderFilterKemono.parseImagesDocByDriver = function(handler, data) {
     
-    if (handler.url.indexOf('kemono.su') == -1 && handler.url.indexOf('kemono.party') == -1 && handler.url.indexOf('coomer.party') == -1 && data.thread.response) return;
+    if (!KellyRecorderFilterKemono.isKemono(handler) && data.thread.response) return;
     
     var parser = new DOMParser();
     var doc = parser.parseFromString(data.thread.response, 'text/html');
@@ -19,26 +29,12 @@ KellyRecorderFilterKemono.parseImagesDocByDriver = function(handler, data) {
 }    
  
 KellyRecorderFilterKemono.onStartRecord = function(handler, data) {
-     if (handler.url.indexOf('kemono.su') == -1 && handler.url.indexOf('kemono.party') == -1) return;
+     if (!KellyRecorderFilterKemono.isKemono(handler, true)) return;
      handler.allowDuplicates = true;
 }
 
-KellyPageWatchdog.validators.push({
-    url : 'kemono.party', 
-    host : 'kemono.party', 
-    patterns : [['/thumbnail/', 'imagePreview']]
-});
-
-KellyPageWatchdog.validators.push({
-    url : 'kemono.su', 
-    host : 'kemono.su', 
-    patterns : [['/thumbnail/', 'imagePreview']]
-});
-
-KellyPageWatchdog.validators.push({
-    url : 'coomer.party', 
-    host : 'coomer.party', 
-    patterns : [['/thumbnail/', 'imagePreview']]
+KellyRecorderFilterKemono.hosts.forEach(function(host) {
+    KellyPageWatchdog.validators.push({url : host, host : host, patterns : [['/thumbnail/', 'imagePreview']]});
 });
 
 KellyPageWatchdog.filters.push(KellyRecorderFilterKemono);

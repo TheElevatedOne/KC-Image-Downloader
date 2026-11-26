@@ -1,8 +1,8 @@
 var KellyEDRecorder = new Object;
     KellyEDRecorder.cacheEnabled = false;
     KellyEDRecorder.recorder = {};
-    
-    // todo - save recorder state cache for manifest v3
+    KellyEDRecorder.stateLoaded = true;
+    KellyEDRecorder.pendingMessages = [];
     
     KellyEDRecorder.getDefaultRecorder = function() {
         return {
@@ -23,13 +23,21 @@ var KellyEDRecorder = new Object;
                 result = KellyEDispetcher.api.runtime.lastError.message;
             }
             
-            if (!response || response === null || !response['kelly_cache_recorder'] || typeof response['kelly_cache_recorder'].srcs == 'undefined') {
+            if (!response || typeof response != 'object') response = {};
+            if (!response['kelly_cache_recorder'] || typeof response['kelly_cache_recorder'].srcs == 'undefined') {
                 result = 'Bad storage item - Reset';
                 response['kelly_cache_recorder'] = KellyEDRecorder.getDefaultRecorder();
             } 
             
             KellyEDRecorder.recorder = response['kelly_cache_recorder'];
-            KellyTools.log('[loadState] [' + result + ']', 'KellyEDRecorder');  
+            KellyTools.log('[loadState] [' + result + ']', 'KellyEDRecorder');
+            
+            // service worker can be woken up by a message before the cached state is restored - replay those now
+            
+            KellyEDRecorder.stateLoaded = true;
+            var pending = KellyEDRecorder.pendingMessages;
+            KellyEDRecorder.pendingMessages = [];
+            for (var i = 0; i < pending.length; i++) KellyEDRecorder.onMessage(pending[i][0], pending[i][1]);
         });
     }
     
@@ -51,7 +59,10 @@ var KellyEDRecorder = new Object;
     KellyEDRecorder.init = function() {
         
         KellyEDRecorder.cacheEnabled = KellyTools.getManifestVersion() > 2 ? true : false;
-        if (KellyEDRecorder.cacheEnabled) KellyEDRecorder.loadState();
+        if (KellyEDRecorder.cacheEnabled) {
+            KellyEDRecorder.stateLoaded = false;
+            KellyEDRecorder.loadState();
+        }
         
         KellyEDispetcher.events.push({onMessage : KellyEDRecorder.onMessage});
     }
@@ -60,6 +71,13 @@ var KellyEDRecorder = new Object;
         
         var response = data.response; // default response array {senderId : 'dispetcher', error : '', method : request.method,}
         var request = data.request;
+        
+        if (['addRecord', 'getRecord', 'startRecord', 'stopRecord', 'isRecorded'].indexOf(request.method) == -1) return false;
+        
+        if (!KellyEDRecorder.stateLoaded) {
+            KellyEDRecorder.pendingMessages.push([dispetcher, data]);
+            return true;
+        }
         var callback = function (cacheUpdate) {
            
            if (cacheUpdate && KellyEDRecorder.cacheEnabled) KellyEDRecorder.saveState(); 

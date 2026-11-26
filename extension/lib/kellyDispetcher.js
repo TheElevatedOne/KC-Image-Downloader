@@ -768,7 +768,8 @@ var KellyEDispetcher = new Object;
             
             // addition events - can be implemented in separate files
             
-            if (KellyEDispetcher.callEvent('onMessage', {response : response, request : request, sender : sender, callback : callback})) return;
+            // handlers may answer later (ex. after restoring service worker state), keep the message channel open
+            if (KellyEDispetcher.callEvent('onMessage', {response : response, request : request, sender : sender, callback : callback})) return true;
         }
         
         if (callback) callback(response);        

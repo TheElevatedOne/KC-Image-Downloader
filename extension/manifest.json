@@ -1,0 +1,116 @@
+{
+    "manifest_version": 3,
+    "name": "KellyC Image Downloader",
+    "version": "1.3.0",
+    "description": "__MSG_ext_description_recorder__",
+    "author": "nradiowave, TheElevatedOne",
+    "homepage_url": "https://github.com/TheElevatedOne/KC-Image-Downloader",
+    "default_locale": "en",
+    "minimum_chrome_version": "121",
+    "browser_specific_settings": {
+        "gecko": {
+            "id": "kc-image-downloader@theelevatedone",
+            "strict_min_version": "128.0",
+            "data_collection_permissions": {
+                "required": [
+                    "none"
+                ]
+            }
+        }
+    },
+    "icons": {
+        "32": "env/img/icon32x32.png",
+        "44": "env/img/icon44x44.png",
+        "128": "env/img/icon128x128.png"
+    },
+    "permissions": [
+        "downloads",
+        "storage",
+        "unlimitedStorage",
+        "tabs",
+        "webRequest",
+        "declarativeNetRequest"
+    ],
+    "host_permissions": [
+        "*://*/*"
+    ],
+    "background": {
+        "service_worker": "background.js",
+        "scripts": [
+            "lib/kellyTools.js",
+            "lib/kellyDispetcher.js",
+            "lib/kellyDispetcherNetRequest.js",
+            "lib/recorder/kellyEDRecorder.js",
+            "env/init/background.js"
+        ]
+    },
+    "content_scripts": [
+        {
+            "run_at": "document_start",
+            "matches": [
+                "*://*/*"
+            ],
+            "js": [
+                "widget/kellyTooltip.js",
+                "widget/kellyTileGrid.js",
+                "widget/kellyImageView.js",
+                "lib/kellyLoc.js",
+                "lib/kellyStorageManager.js",
+                "lib/kellyThreadWork.js",
+                "lib/kellyGrabber.js",
+                "lib/kellyFastSave.js",
+                "lib/kellyToolbar.js",
+                "lib/kellyTools.js",
+                "lib/kellyOptions.js",
+                "lib/kellyAdditionsForm.js",
+                "lib/kellyFavItems.js",
+                "lib/recorder/kellyPageWatchdog.js",
+                "lib/recorder/kellyLoadDocControll.js",
+                "lib/recorder/kellyDPage.js",
+                "lib/recorder/filters/artstation.js",
+                "lib/recorder/filters/deviantart.js",
+                "lib/recorder/filters/ehentai.js",
+                "lib/recorder/filters/instagram.js",
+                "lib/recorder/filters/joyreactor.js",
+                "lib/recorder/filters/kemonoparty.js",
+                "lib/recorder/filters/pixiv.js",
+                "lib/recorder/filters/twitter.js",
+                "lib/recorder/filters/vk.js",
+                "lib/recorder/filters/flickr.js",
+                "lib/recorder/filters/pikabu.js",
+                "lib/recorder/filters/reddit.js",
+                "lib/recorder/filters/bsky.js",
+                "lib/recorder/filters/9gag.js",
+                "lib/recorder/filters/hfoundry.js",
+                "lib/recorder/filters/yandex.js",
+                "lib/recorder/filters/discord.js",
+                "lib/recorder/filters/_validators.js",
+                "lib/profiles/default.js",
+                "lib/profiles/recorder.js",
+                "env/init/recorderFront.js"
+            ]
+        }
+    ],
+    "action": {
+        "default_popup": "env/html/recorderPopup.html",
+        "default_icon": {
+            "32": "env/img/icon32x32.png"
+        }
+    },
+    "options_ui": {
+        "page": "env/html/recorderDownloader.html?tab=modules",
+        "open_in_tab": true
+    },
+    "web_accessible_resources": [
+        {
+            "resources": [
+                "env/css/*.css",
+                "env/html/*.html",
+                "env/dynamic/*.js"
+            ],
+            "matches": [
+                "*://*/*"
+            ]
+        }
+    ]
+}

@@ -1501,15 +1501,35 @@ KellyTools.setCopyright = function(id, context) {
     var container = document.getElementById(id);
     if (!container) return;
     
-    if (context == 'popup') html = '<a target="_blank" href="/env/html/recorderDownloader.html?tab=help">' + KellyLoc.s('', 'help') + '</a>© <a target="_blank" href="http://kelly.catface.ru/">' + KellyLoc.s('', 'nradiowave_person') + '</a>';
-    else html = 'created by <a target="_blank" href="http://kelly.catface.ru/">' + KellyLoc.s('', 'nradiowave_person')  + '</a>';
+    var html, author = '<a target="_blank" href="' + KellyTools.links.upstream + '">' + KellyLoc.s('', 'nradiowave_person') + '</a>';
+    
+    if (context == 'popup') html = '<a target="_blank" href="/env/html/recorderDownloader.html?tab=help">' + KellyLoc.s('', 'help') + '</a>© ' + author;
+    else html = 'created by ' + author + ' · <a target="_blank" href="' + KellyTools.links.github + '">fork on GitHub</a>';
     
     KellyTools.setHTMLData(container, html); 
     
-    container.getElementsByTagName('A')[0].onclick = function() {
-        KellyTools.getBrowser().tabs.create({url: this.href}, function(tab){}); 
-        return false;
+    var links = container.getElementsByTagName('A');
+    for (var i = 0; i < links.length; i++) {
+        links[i].onclick = function() {
+            KellyTools.getBrowser().tabs.create({url: this.href}, function(tab){}); 
+            return false;
+        }
     }
+}
+
+// project links - original domains of the author are offline
+KellyTools.links = {
+    github : 'https://github.com/TheElevatedOne/KC-Image-Downloader',
+    issues : 'https://github.com/TheElevatedOne/KC-Image-Downloader/issues',
+    readme : 'https://github.com/TheElevatedOne/KC-Image-Downloader#readme',
+    filtersDoc : 'https://github.com/TheElevatedOne/KC-Image-Downloader/blob/master/extension/lib/recorder/filters/README.md',
+    upstream : 'https://github.com/NC22/KellyC-Image-Downloader',
+    upstreamWiki : 'https://github.com/NC22/KellyC-Image-Downloader/wiki',
+};
+
+KellyTools.prefersDarkTheme = function() {
+    if (typeof window == 'undefined' || !window.matchMedia) return true;
+    return window.matchMedia('(prefers-color-scheme: dark)').matches;
 }
 
 KellyTools.getManifestVersion = function() {

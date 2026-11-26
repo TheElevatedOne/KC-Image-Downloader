@@ -10,14 +10,10 @@ var KellyProfileRecorder = new Object();
         handler.extLinks = {
         
             pp : 'https://github.com/NC22/KellyC-Image-Downloader/wiki/%5BPP%5D-Privacy-Policy',
-            github : 'https://github.com/NC22/KellyC-Image-Downloader',
-            
-            install_ff : 'https://addons.mozilla.org/ru/firefox/addon/kellyc-favorites/',
-            install_chrome : 'https://chrome.google.com/webstore/detail/kellyc-image-downloader/mbhkdmjolnhcppnkldbdfaomeabjiofm?hl=en',
-            install_edge : 'https://microsoftedge.microsoft.com/addons/detail/kellyc-image-downloader/dgjfegjceojpbngijkaekoihllhhdocn',
-            install_opera : 'https://kdl.catface.ru/ru/install-opera/',
-            
-            author : 'https://nradiowave.catface.ru/',
+            github : KellyTools.links.github,
+            upstream : KellyTools.links.upstream,
+            issues : KellyTools.links.issues,
+            author : KellyTools.links.upstream,
         };
     }
     

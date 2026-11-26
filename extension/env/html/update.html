@@ -2,347 +2,130 @@
 <html lang="en">
 
     <head>
-    
         <meta charset="utf-8">
-        
         <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1">
-        
         <title>KellyC Image Downloader</title>
-        <!-- put last news notice to "update" blocks and set list of versions in kellyDispetcher if some important news needs to be shown for them -->
-        
+        <!-- about page, also opened as ?mode=update after updates listed in kellyDispetcher.updatePageRevision -->
+
         <style>
-        
+            :root {
+                --kc-bg: #f3f3f4;
+                --kc-surface: #ffffff;
+                --kc-border: #d4d4d8;
+                --kc-fg: #1c1c1f;
+                --kc-muted: #5f5f66;
+                --kc-accent: #e0393e;
+            }
+
+            @media (prefers-color-scheme: dark) {
+                :root {
+                    --kc-bg: #1f1f22;
+                    --kc-surface: #2c2c30;
+                    --kc-border: #3a3a3f;
+                    --kc-fg: #ececef;
+                    --kc-muted: #a2a2aa;
+                    --kc-accent: #f0555a;
+                }
+            }
+
+            * { box-sizing: border-box; }
+
             html, body {
-                background: #686970;
-                color: #181819;
-                margin : 0;
-                padding : 0;  
-                width: 100%;
-                height: 100%;  
-                font-family: Arial, Helvetica, sans-serif;
-                font-size: 14px;
-                line-height: 22px;
-                font-weight: 400;
-            }
-            
-            body {
-                padding-top: 20px;
-                overflow-y : scroll;
-            }
-            
-            * {
-                box-sizing: border-box;
-            }   
-
-            a {
-                color : #fff;
-            }
-            
-            p {
-                margin: 9px 0;
-            }
-            
-            .notice-wrap {
-        
-                width: 80%;
-                background-size: cover;
-                color: #bfbfbf;
-                font-size: 16px;
-                margin: 0 auto;
-                padding-bottom : 24px;
-            }
-            
-            .notice-header {
-               /* position: absolute; */
-                height: 55px;
-                background: #393e5873;
-                width: 100%;
-                left: 0;
-                top: 0;
-                z-index: 1;
-                border-radius: 8px 8px 0px 0px;
-                /* border-bottom: 1px solid #a5a5a5; */
-                padding-top: 16px;
-                padding-left: 29px;
-                color: #fff;
-            }
-            
-            .notice {
-                margin: 0 auto;
-                min-height: 80%;
-                padding: 23px;
-                font-size: 16px;
-                color: #fff;
-                border-radius: 2px;
-                position: relative;
-                padding-top: 7px;
-                background: #130e1b94;
-                border-radius: 0 0 8px 8px;
-            }
-
-            ul li {
-                margin-left: 31px;
-            }
-            
-            ul {
-                padding: 0;
-                margin : 0;
-                list-style: circle;
-            }
-            
-            .updates, .about, .jr {
-                display : none;
-            }
-            
-            .env-jr .jr, .mode-update .updates, .mode-about .about {
-                display : block;
-            }
-            
-            .mode-update span.updates, .mode-about span.about {
-               display : inline-block;
-            }
-            
-            .addition-item {
-            
-                position: relative;
-                color: #fff;
-                background: #8997c4;
-                padding: 9px;
-                background: #62636c;
-                padding: 9px;
-                text-align: center;
-                white-space: nowrap;
-                display: inline-block;
-                margin-top: 107px;
-                min-width: 100px;
-                text-decoration: none;
-                text-align : left;
-                
-                margin-right: 30px;
-                margin-bottom: 20px;
-             }  
-             
-             .addition-item:hover div {
-                width: 120px;
-                height: 120px;
-                margin-left: -60px;
-                top: -117px;
-                background-size: 127px;
-            }
-            
-            .addition-item div {
-                transition: 0.2s background-size, 0.2s top, 0.2s margin-left, 0.2s width, 0.2s height;
-                width: 100px;
-                height: 100px;
-                background-size: 107px;
-                background-position: -4px -3px;
-                border-radius: 6px;
-                border: 2px solid #fff;
-                box-sizing: border-box;
-                margin-right: 34px;
-                display: inline-block;
-                position: absolute;
-                left: 50%;
-                margin-left: -50px;
-                top: -107px;
-            }
-            
-            .addition-item span {
-                display: block;
-                font-size: 12px;
-            }
-            
-            .addition-item .sticker {
-                background-repeat: no-repeat;
-                background-position : center;
-                background-color: rgba(158, 159, 168, 1);
-            }
-            
-            .additions {
-                margin-top: 30px;
-                text-align : center;
-            } 
-            
-            
-            @keyframes char-move {
-              0%, 100% {
-                left: -58px;
-              }
-              50% {
-                left: 10px;
-              }
-            }
-                            
-            .random-character {
-            
-                position: fixed;
-                bottom: 0;
-                width : 100%;
-                height : 100%;
-                box-sizing: border-box;
-                padding: 0;
-                transition: opacity 1s;
-                opacity: 0;
-                background-size : cover;
-                
-            }
-            
-            .random-character-ghost {
-                z-index : 1;
-            }
-          
-            .random-character-main {
-                z-index : 2;
-            }
-            
-            .random-character.fade-in {
-                opacity : 1;
-            }
-            
-            .notice-wrap {
-                position : relative;
-                z-index : 4;
-            }
-            
-            .mobile {
-                display : none;
-            }
-            
-            .default-spoiler {
-                margin-bottom: 12px;
-            }
-            
-            .important-spoiler .spoiler-show a {
-                color: #ff7209;
-            }
-            
-            .spoilers {
-                margin-top : 24px;
-            }
-            
-            .spoiler {
-                max-width : 100%;
-            }
-            
-            .spoiler {
-                transition: 0.4s opacity;
-                overflow: hidden;
-            }
-            
-            .spoiler-show a {
-                color: #fff;
-                text-decoration: none;
-                background : #62636c;
-                padding : 4px;
-            }
-            
-            .spoiler-hidden {
-                opacity: 0;
-                height: 0;
                 margin: 0;
                 padding: 0;
+                background: var(--kc-bg);
+                color: var(--kc-fg);
+                font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans", sans-serif;
+                font-size: 15px;
+                line-height: 1.55;
             }
-            
-            video {
-                width : 100%;
-                max-width : 720px;
+
+            body { padding: 40px 16px; }
+
+            a { color: var(--kc-accent); }
+
+            .notice-wrap {
+                max-width: 720px;
+                margin: 0 auto;
+                background: var(--kc-surface);
+                border: 1px solid var(--kc-border);
+                border-top: 3px solid var(--kc-accent);
             }
-            
-            @media (max-width: 800px) {
-            
-                body {
-                    padding-top : 0;
-                }
-                
-                .notice-wrap {
-                    width: 100%;
-                }
-                
-                .addition-item {
-                    width : 100%;
-                }
-                
-                .notice-header {
-                    height: unset;
-                    padding: 18px;
-                }
-                
-                .mobile {
-                    display: list-item;
-                    font-style: italic;
-                }
+
+            .notice-header {
+                display: flex;
+                align-items: center;
+                gap: 12px;
+                padding: 18px 24px;
+                border-bottom: 1px solid var(--kc-border);
+                font-size: 18px;
             }
+
+            .notice-header img { width: 32px; height: 32px; }
+            .notice-header .version { margin-left: auto; color: var(--kc-muted); font-size: 14px; font-weight: 400; }
+
+            .notice { padding: 8px 24px 20px; }
+            .notice h2 { font-size: 15px; margin: 20px 0 6px; }
+            .notice p { margin: 6px 0; }
+            .notice ul { margin: 6px 0; padding-left: 20px; }
+            .muted { color: var(--kc-muted); }
         </style>
-        
     </head>
 
     <body>
-       
-        
-        <div class="random-character random-character-ghost"></div>
-        <div class="random-character random-character-main"></div>
-        
-          
+
         <div class="notice-wrap notice-en" style="display : none;">
-        
             <div class="notice-header">
-                <b>KellyC Image Downloader</b> <span class="updates"></span><b class="version"></b>            
+                <img src="/env/img/icon128x128.png" alt="">
+                <b>KellyC Image Downloader</b>
+                <span class="version"></span>
             </div>
-            
             <div class="notice">
-            
-                <br> Migration to <a href="https://ko-fi.com/nradiowave" target="_blank" style="font-size: 18px;">
-             
-                <img src="/env/img/cup.png" style="width: 29px; vertical-align: middle; padding-left: 4px; padding-right: 4px; box-sizing: content-box;"><b>Ko-Fi</b></a>
-                <br><br> 
-                
-                Hello! <br><br>This extension done by myself in spare time and with your support I tried to keep it always up-to-dated and without any ads. 
+                <p>Batch download images from any site, filtered by size, proportions or URL. Many sites have auto-filters that pick the original image instead of the preview.</p>
 
-                <br><br>
-                Sadly at date 20.02.24 service <i>BuyMeaCoffee</i> (service that accepted donations from supporters) started make scam actions and blocked my donations page without warnings &amp; now ignore any questions
+                <h2>Credits</h2>
+                <p>Created by <b>nradiowave</b> (<a href="https://github.com/NC22/KellyC-Image-Downloader" target="_blank">NC22/KellyC-Image-Downloader</a>). The original project was removed from the extension stores and its websites are offline.</p>
+                <p>This fork keeps it working in current Chrome and Firefox: <a href="https://github.com/TheElevatedOne/KC-Image-Downloader" target="_blank">TheElevatedOne/KC-Image-Downloader</a>.</p>
 
-                (<a href="https://twitter.com/nradiowave/status/1760991402349998541" target="_blank">discussion &amp; more info</a>) so now I have to move my projects to <a href="https://ko-fi.com/nradiowave" target="_blank">analog</a>
-                <br><br><b>Thank you for people who supported my development work all this time!</b> I'll hope all be fine...
-                
-                <br>
+                <h2>Links</h2>
+                <ul>
+                    <li><a href="https://github.com/TheElevatedOne/KC-Image-Downloader#readme" target="_blank">Getting started</a></li>
+                    <li><a href="https://github.com/NC22/KellyC-Image-Downloader/wiki" target="_blank">Original documentation (wiki)</a></li>
+                    <li><a href="https://github.com/TheElevatedOne/KC-Image-Downloader/issues" target="_blank">Report a problem or a broken site</a></li>
+                </ul>
+
+                <p class="muted">Free software under the GNU General Public License v3.</p>
             </div>
-        
-        </div>     
-         
+        </div>
+
         <div class="notice-wrap notice-ru" style="display : none;">
-        
             <div class="notice-header">
-                <b>KellyC Image Downloader</b> <span class="updates"></span><b class="version"></b>            
+                <img src="/env/img/icon128x128.png" alt="">
+                <b>KellyC Image Downloader</b>
+                <span class="version"></span>
             </div>
-            
             <div class="notice">
-                  
-                <br> Переход на <a href="https://ko-fi.com/nradiowave" target="_blank" style="font-size: 18px;">
-             
-                <img src="/env/img/cup.png" style="width: 29px; vertical-align: middle; padding-left: 4px; padding-right: 4px; box-sizing: content-box;"><b>Ko-Fi</b></a>
-                <br><br> 
-                
-                Привет! <br><br>Это расширение разрабатывается мной в свободное время по мере возможности и все это время я старался поддерживать его в актуальном рабочем состоянии и без какой либо рекламы. 
+                <p>Пакетное скачивание картинок с любых сайтов с фильтрами по размеру, пропорциям и URL. Для многих сайтов есть автофильтры, которые выбирают оригинал вместо превью.</p>
 
-                <br><br>
-                К сожалению 20.02.24 сервис <i>BuyMeaCoffee</i> (сервис добровольных пожертвований) начал совершать мошеннические действия и заблокировал мою страницу без предупреждений и возможности обратной связи
+                <h2>Авторы</h2>
+                <p>Автор — <b>nradiowave</b> (<a href="https://github.com/NC22/KellyC-Image-Downloader" target="_blank">NC22/KellyC-Image-Downloader</a>). Оригинальный проект убран из магазинов расширений, его сайты недоступны.</p>
+                <p>Этот форк поддерживает работу в актуальных Chrome и Firefox: <a href="https://github.com/TheElevatedOne/KC-Image-Downloader" target="_blank">TheElevatedOne/KC-Image-Downloader</a>.</p>
 
-                (<a href="https://twitter.com/nradiowave/status/1760991402349998541" target="_blank">обсуждение &amp; доп. информация</a>) по этому на данный момент приходится переходить на <a href="https://ko-fi.com/nradiowave" target="_blank">аналог</a>
-                <br><br><b>Спасибо тем людям кто поддерживал разработку все это время!</b>
-                
-                <br>
-            
+                <h2>Ссылки</h2>
+                <ul>
+                    <li><a href="https://github.com/TheElevatedOne/KC-Image-Downloader#readme" target="_blank">С чего начать</a></li>
+                    <li><a href="https://github.com/NC22/KellyC-Image-Downloader/wiki" target="_blank">Оригинальная документация (wiki)</a></li>
+                    <li><a href="https://github.com/TheElevatedOne/KC-Image-Downloader/issues" target="_blank">Сообщить об ошибке или неработающем сайте</a></li>
+                </ul>
+
+                <p class="muted">Свободное ПО под лицензией GNU General Public License v3.</p>
             </div>
-        
-        </div>     
-    
-    
+        </div>
+
         <script src="../../lib/kellyTools.js"></script>
         <script src="../../lib/kellyCAbout.js"></script>
-        <script src="../../lib/kellyNradiowaveBg.js"></script>
         <script src="../init/commonAbout.js"></script>
-        
-        
+
     </body>
 
-</html> 
+</html>

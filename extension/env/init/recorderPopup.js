@@ -171,7 +171,7 @@ KellyPopupPage.buttons = {
                            window.close();
                      });
                      
-                 } else KellyPopupPage.updateNotice('Вкладка недоступна');              
+                 } else KellyPopupPage.updateNotice(KellyLoc.s('', 'tab_unavailable'));              
             });
              
          });
@@ -253,7 +253,7 @@ KellyPopupPage.buttons = {
                                     
                                     KellyTools.log('startRecord - [Reset background by stopRecord - ' + (response ? 'OK' : 'FAIL') + ']', 'KellyPopupPage');
                                     KellyPopupPage.recordingState = 'disabled';
-                                    KellyPopupPage.updateNotice('Вкладка недоступна');
+                                    KellyPopupPage.updateNotice(KellyLoc.s('', 'tab_unavailable'));
                                                                         
                                     if (onReady) onReady('START_FAIL');
                                     
@@ -277,7 +277,7 @@ KellyPopupPage.buttons = {
          KellyTools.getBrowser().tabs.create({url: '/env/html/recorderDownloader.html?tab=profiles'}, function(tab){});
          window.close();
     }}, 
-    'support_project' : {loc : 'link_support', icon : 'cup', event : function() {
+    'support_project' : {loc : 'link_support', event : function() {
         
          KellyTools.getBrowser().tabs.create({url: '/env/html/update.html?mode=about'}, function(tab){}); 
          window.close();
@@ -436,7 +436,7 @@ KellyPopupPage.init = function() {
                 
                 if (fav.coptions.darkTheme) KellyPopupPage.css.push('darkRecorderPopup');
                 
-            } else {
+            } else if (KellyTools.prefersDarkTheme()) {
                  KellyPopupPage.css.push('darkRecorderPopup');
             }
             

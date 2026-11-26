@@ -88,10 +88,13 @@ KellyAdditionsForm = {
                 MODULES : pModulesHtml, 
                 MENU : menuHtml,
                 HIDDENCLASS : bcEnv + '-hidden',
-                INSTALL_FF : defaultLinks['install_ff'],
-                INSTALL_CHROME : defaultLinks['install_chrome'],
                 AUTHOR : defaultLinks['author'],
                 GITHUB : defaultLinks['github'],
+                UPSTREAM : KellyTools.links.upstream,
+                UPSTREAM_WIKI : KellyTools.links.upstreamWiki,
+                ISSUES : KellyTools.links.issues,
+                README : KellyTools.links.readme,
+                FILTERS_DOC : KellyTools.links.filtersDoc,
                 PP : defaultLinks['pp'],
             }));
             

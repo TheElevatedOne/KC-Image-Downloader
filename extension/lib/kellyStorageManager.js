@@ -1329,7 +1329,7 @@ function KellyFavStorageManager(cfg) {
                 addToFavSide : false,                
                 addToFavNoConfirm : false,
                 webRequest : true,
-                darkTheme : true,
+                darkTheme : KellyTools.prefersDarkTheme(), // follow system theme until changed in options
                 // storageDesc - associations of .storage keys with pretty names | todo - make changable from options [Profiles] tab
             };
         }

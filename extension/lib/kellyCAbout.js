@@ -21,9 +21,7 @@ KellyCAbout.showPage = function(cfg) {
     
     if (mode == 'update') {}
     
-    handler.container.getElementsByClassName('version')[0].innerText = KellyTools.getBrowser().runtime.getManifest().version;
-    handler.bgManager = new KellyNradiowaveBg();
-    handler.bgManager.init();
+    handler.container.getElementsByClassName('version')[0].innerText = 'v' + KellyTools.getBrowser().runtime.getManifest().version;
 }
 
 KellyCAbout.initVideos = function() {

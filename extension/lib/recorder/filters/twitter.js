@@ -1,8 +1,13 @@
 KellyRecorderFilterTwitter = new Object();
-KellyRecorderFilterTwitter.manifest = {host : 'twitter.com', detectionLvl : ['imageAny', 'imagePreview', 'imageOriginal']};
+KellyRecorderFilterTwitter.manifest = {host : ['twitter.com', 'x.com', 'mobile.twitter.com', 'mobile.x.com'], detectionLvl : ['imageAny', 'imagePreview', 'imageOriginal']};
+
+// twitter.com moved to x.com
+KellyRecorderFilterTwitter.isTwitter = function(handler) {
+    return handler.url.indexOf('twitter.com') != -1 || /^https?:\/\/(mobile\.|www\.)?x\.com(\/|$)/.test(handler.url);
+}
 
 KellyRecorderFilterTwitter.onInitLocation = function(handler, data) {
-    if (handler.url.indexOf('twitter') != -1) {
+    if (KellyRecorderFilterTwitter.isTwitter(handler)) {
 
         handler.getConfig(function(options, source) {
             
@@ -131,7 +136,7 @@ KellyRecorderFilterTwitter.delayUpdate18wTweek = function() {
 }
 
 KellyRecorderFilterTwitter.addItemByDriver = function(handler, data) {
-    if (handler.url.indexOf('twitter') != -1 && data.el.tagName == 'IMG' && data.el.src.indexOf('name=') != -1 && data.el.src.indexOf('pbs.twimg.com/media') != -1) {
+    if (KellyRecorderFilterTwitter.isTwitter(handler) && data.el.tagName == 'IMG' && data.el.src.indexOf('name=') != -1 && data.el.src.indexOf('pbs.twimg.com/media') != -1) {
         
        handler.addSingleSrc(data.item, data.el.src, 'addSrcFromAttributes-src', data.el, 'imagePreview');
        handler.addSingleSrc(data.item, data.el.src.split('&name=')[0] + '&name=orig', 'addSrcFromAttributes-src', data.el, 'imageOriginal');
@@ -140,5 +145,7 @@ KellyRecorderFilterTwitter.addItemByDriver = function(handler, data) {
     } 
 }
 
-KellyPageWatchdog.validators.push({url : 'twitter', patterns : [['twimg.com/media', 'imageAny']]});
+KellyPageWatchdog.validators.push({url : 'twitter.com', patterns : [['twimg.com/media', 'imageAny']]});
+KellyPageWatchdog.validators.push({url : '://x.com', patterns : [['twimg.com/media', 'imageAny']]});
+KellyPageWatchdog.validators.push({url : '://mobile.x.com', patterns : [['twimg.com/media', 'imageAny']]});
 KellyPageWatchdog.filters.push(KellyRecorderFilterTwitter);

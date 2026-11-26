@@ -80,13 +80,13 @@
 }
 
 .__BASECLASS__-pagination-item.active, .__BASECLASS__-pagination-item:hover, .__BASECLASS__-pagination-item:focus {
-     background : #ffebc2;
+     background : #e4e4e7;
 }
 
 .__BASECLASS__-pagination-item {
      overflow: hidden;
      padding: 0px;
-     border-radius : 2px;
+     border-radius : 0;
      text-decoration : none;
      display : inline-block;
      margin-right : 3px;
@@ -95,8 +95,8 @@
      width : 32px;
      height : 32px;
      font-size : 16px;
-     background : #ffca61;
-     border: 3px solid #ffcc66;     
+     background : #dcdce0;
+     border: 3px solid #c8c8ce;     
      float: left;
      margin-top: 12px;
 }
@@ -207,7 +207,7 @@
 	border : 0px dashed #c5c5c5;
 	color : #fff;
         
-	border-radius : 0px;
+	border-radius : 0;
 	padding : 12px;
     box-sizing: border-box;
     position : relative;
@@ -256,7 +256,7 @@
 }
 
 .__BASECLASS__-download-tooltipster .__BASECLASS__-tooltipster-content a.active {
-    background: #fecc65;
+    background: #f6d4d5;
 }
 
 .__BASECLASS__-download-tooltipster .__BASECLASS__-tooltipster-close {
@@ -351,7 +351,7 @@
     background: rgb(255 168 0);
     width: 100px;
     text-align: center;
-    border-radius: 3px;
+    border-radius: 0;
     overflow : hidden;
     cursor : pointer;
     color : #fff;
@@ -406,7 +406,7 @@
 .__BASECLASS__-tooltipster-ItemInfo-tags > li {
      margin-top : 12px;
      background : rgba(157, 156, 167, 0.4588);
-     border-radius : 4px;
+     border-radius : 0;
      padding : 4px;
 }
 
@@ -466,7 +466,7 @@
 .__BASECLASS__-preview {
     overflow : hidden;
     height : 250px;
-    border-radius : 4px;
+    border-radius : 0;
     cursor: pointer;
 }
 
@@ -474,7 +474,7 @@
     line-height : 20px;
     padding : 4px;
     font-size : 14px;
-    background: #ffd6a4;
+    background: #e4e4e7;
     padding: 6px;
     margin-top: 6px;
 }
@@ -532,7 +532,7 @@
     top: 50%;
     z-index: 1;
     margin-top: -25%;
-    border-radius: 6px;
+    border-radius: 0;
 }
 
 .__BASECLASS__-FavItem-error:before {
@@ -602,11 +602,11 @@
      line-height: 32px;
      background-color: rgba(213, 213, 213, 0.81);
      text-decoration: none;
-     border-radius : 3px;
+     border-radius : 0;
 }
 
 .__BASECLASS__-FavItem a.__BASECLASS__-FavItem-collection:hover {
-    background-color : #ffb04e;
+    background-color : #c8c8ce;
 }
 
 .__BASECLASS__-FavItem:hover > a {
@@ -653,7 +653,7 @@
 }
 
 .__BASECLASS__-filters-AdditionButtons button.__BASECLASS__-FavFilter  {
-     border-radius : 0px;
+     border-radius : 0;
      margin-bottom : 0px;
      display : inline-block;
      height : 32px;
@@ -677,12 +677,12 @@
      content: ' ';
      width: 12px;
      height: 12px;
-     background: #ff8d4b;
+     background: #e0393e;
      display: block;
      position: absolute;
      right: 5px;
      top: 0px;
-     border-radius: 6px;
+     border-radius: 0;
      border: 2px solid #713d1e;
 }
 
@@ -694,7 +694,7 @@
  
 .__BASECLASS__-FiltersMenu > li > button {
      border : 0px;
-     border-radius : 6px;
+     border-radius : 0;
      text-decoration : none;
      display : inline-block;
      margin-right : 6px;
@@ -702,7 +702,7 @@
      text-align : center;
      height : 24px;
      font-size : 14px;
-     background : #ffc78e;
+     background : #dcdce0;
      display : inline-block;
      padding: 0;
      padding-left : 4px;
@@ -715,7 +715,7 @@
 }
 
 .__BASECLASS__-FiltersMenu > li.flush > button {
-    background-color : #fff5eb;
+    background-color : #f3f3f4;
 }
 
 .__BASECLASS__-FiltersMenu > li.__BASECLASS__-filters-CatCreate > button {
@@ -728,7 +728,7 @@
 }
 
 .__BASECLASS__-FiltersMenu > li > button.active{
-     background : #ff5c10;
+     background : #e0393e;
 }
 
 .__BASECLASS__-FiltersMenu > li > button.activeIgnore {
@@ -778,7 +778,7 @@
     background : #fff;     
     min-height : 155px;     
     border : 1px solid #e1e1e1;
-    border-radius : 4px;
+    border-radius : 0;
 
     opacity : 1;
     transition : opacity 0.3s;
@@ -869,7 +869,7 @@
     width: 16px;
     height: 16px;
     background: #f97272;
-    border-radius: 8px;
+    border-radius: 0;
     display: inline-block;
     overflow: hidden;
     vertical-align: middle;
@@ -905,7 +905,7 @@
     font-weight : bold;
     padding: 2px 6px;
     color: #fff!important;
-    border-radius: 3px;  
+    border-radius: 0;  
     width: 48%;
     text-align: center;
     float : right;
@@ -914,14 +914,14 @@
 .__BASECLASS__Remove {
     width: 100%;
     padding: 4px;
-    border-radius: 3px;
+    border-radius: 0;
     text-decoration: none;
     display: block;
     margin: 0px 0px 6px 0px;
 }
 
 .__BASECLASS__Add, .__BASECLASS__Add:hover {
-    background: #ff9900;
+    background: #e0393e;
     text-decoration: none;
 }
 
@@ -956,7 +956,7 @@
     cursor: auto;
     box-sizing: border-box;
     max-height: 300px;
-    border-radius: 3px;
+    border-radius: 0;
 }
 
 .__BASECLASS__-ModalBox-message {
@@ -1020,7 +1020,7 @@
     
     border: 14px solid rgba(243, 243, 243, 0.67);
     border-radius: 50%;
-    border-left: 14px solid #ff6922;
+    border-left: 14px solid #e0393e;
 
     animation: __BASECLASS__LoaderSpin 2s linear infinite;
 
@@ -1046,8 +1046,8 @@
 	padding : 9px; 
 	box-sizing: border-box; 
 	cursor : pointer; 
-	background : #fdb201; 
-	color : #56400c;
+	background : #e0393e; 
+	color : #ffffff;
 	position : absolute; 
 	display : block;
 	width : 32px;
@@ -1055,7 +1055,7 @@
 	font-weight : bold;
 	padding-top: 7px;
     font-family: Tahoma, sans-serif;
-	border-radius: 16px;
+	border-radius: 0;
     padding-left: 8px;
 }
 
@@ -1103,13 +1103,13 @@
 }
 
 .__BASECLASS__-ImgView-btn svg g {
-    stroke: #56400c;
-    fill: #56400c;
+    stroke: #ffffff;
+    fill: #ffffff;
 }
 
 .__BASECLASS__-ImgView-btn svg g line {
-    stroke: #56400c; 
-    fill: #56400c;
+    stroke: #ffffff; 
+    fill: #ffffff;
 }
 
 .__BASECLASS__-ImgView-lock {
@@ -1130,19 +1130,19 @@
     display: inline-block;
     width: 200px;
     height: 32px;
-    background: #ffefc9;
+    background: #ececee;
     text-align: center;
     text-decoration: none;
     font-size: 16px;
-    border-top-left-radius : 3px;
-    border-top-right-radius : 3px;
+    border-top-left-radius : 0;
+    border-top-right-radius : 0;
 	overflow : hidden;
 	line-height :1.1;
     margin-right : 4px;
 }
 
 .__BASECLASS__-tab-list ul li.active {
-	background : #fdb201;
+	background : #e0393e;
 }
 
 .__BASECLASS__-tab-list a {
@@ -1156,7 +1156,7 @@
 .__BASECLASS__-OptionsMessage {
     line-height: normal;
     padding: 12px;
-    background: #ffbd79;
+    background: #f6d4d5;
     font-weight: bold;
     margin-top: 12px;
 }
@@ -1200,7 +1200,7 @@ p.__BASECLASS__-options-notice {
 .__BASECLASS__-options-table-datasource img {
     width: 62px;
     height: 62px;
-    border-radius: 32px;
+    border-radius: 0;
     margin: 6px;
     padding: 0px;
     vertical-align: middle;
@@ -1280,7 +1280,7 @@ p.__BASECLASS__-options-notice {
 
 .__BASECLASS__-DBItem {
     position: relative;    
-    border-radius: 3px;
+    border-radius: 0;
     padding-left: 8px;
     vertical-align: middle;
     height: 33px;
@@ -1300,7 +1300,7 @@ p.__BASECLASS__-options-notice {
 }
 
 .__BASECLASS__-DBItem.active {
-    background-color : #ffe291;
+    background-color : #f6d4d5;
 }
 
 .__BASECLASS__-DBItem.active:after {
@@ -1309,7 +1309,7 @@ p.__BASECLASS__-options-notice {
     background: #81da90;
     height: 16px;
     width: 16px;
-    border-radius: 16px;
+    border-radius: 0;
     top: 9px;
     right: 12px;
 }
@@ -1411,7 +1411,7 @@ p.__BASECLASS__-options-notice {
     z-index: 1;
     width: 12px;
     height: 12px;
-    border-radius: 12px;
+    border-radius: 0;
 }
 
 .__BASECLASS__-fast-save-notdownloaded:after {
@@ -1423,7 +1423,7 @@ p.__BASECLASS__-options-notice {
     background-image : none!important;
     border-radius: 50%;
     border: 4px solid rgba(98, 98, 98, 0.1803);
-    border-left: 4px solid #ff9b20;
+    border-left: 4px solid #e0393e;
 }
 
 .__BASECLASS__-fast-save-loading:after {
@@ -1463,19 +1463,19 @@ p.__BASECLASS__-options-notice {
 }
 
 .__BASECLASS__-MainMenuItem.active a {
-	background : #fdb201;
+	background : #e0393e;
 }
 
 .__BASECLASS__-MainMenuItem-iconed.active .__BASECLASS__-icon,
 .__BASECLASS__-MainMenuItem-fav.active .__BASECLASS__-icon {
-	background-color : #fdb201;
+	background-color : #e0393e;
 }
 
 .__BASECLASS__-MainMenuItem-iconed .__BASECLASS__-icon,
 .__BASECLASS__-MainMenuItem-fav .__BASECLASS__-icon {
 
     background-color: rgba(239, 239, 239, 0.4);
-	border-radius : 15px;
+	border-radius : 0;
 }
 
 .__BASECLASS__-MainMenuItem.__BASECLASS__-MainMenuItem-iconed,
@@ -1527,7 +1527,7 @@ p.__BASECLASS__-options-notice {
 .__BASECLASS__-common-button,
 .__BASECLASS__-exporter-button-addtoprofile {
     
-    background: #ffbb00;
+    background: #e0393e;
     height: 42px;
     display: inline-block;
     vertical-align: middle;
@@ -1585,7 +1585,7 @@ p.__BASECLASS__-options-notice {
 	max-height : 200px;
 	border: 1px solid #b7b7b7;
     padding: 6px;
-    border-radius: 3px;
+    border-radius: 0;
 }
 
 .__BASECLASS__-exporter-tag-filter, .__BASECLASS__-exporter-create-by-tag {
@@ -1627,7 +1627,7 @@ p.__BASECLASS__-options-notice {
     width : 16px; 
     height : 16px;
     background : #2bff4f;
-    border-radius: 8px;
+    border-radius: 0;
     border : 1px solid 1px solid rgba(0,0,0,0.3); 
     
     position : absolute;
@@ -1754,7 +1754,7 @@ p.__BASECLASS__-options-notice {
 .__BASECLASS__-ModalBox-downloader .kelly-jr-ui-downloader-controll-buttons a.__BASECLASS__-downloader-button-save_as_json,
 .__BASECLASS__-ModalBox-downloader .kelly-jr-ui-downloader-controll-buttons a.__BASECLASS__-downloader-button-save_as_txt,
 .__BASECLASS__-ModalBox-downloader .kelly-jr-ui-downloader-controll-buttons a.__BASECLASS__-downloader-button-save_log {
-    background: #ffebc2;
+    background: #e4e4e7;
 }
 
 .__BASECLASS__-ModalBox-downloader .__BASECLASS__-downloader-controll-buttons a:hover {
@@ -1810,7 +1810,7 @@ p.__BASECLASS__-options-notice {
 	max-height : 600px;
 	border: 1px solid #b7b7b7;
     padding: 6px;
-    border-radius: 3px;
+    border-radius: 0;
     
     background : #fff;
     color : #000;
@@ -1873,7 +1873,7 @@ p.__BASECLASS__-options-notice {
     background: rgba(79, 255, 120, 0.76);
     width: 100%;
     height: 100%;
-    border-radius: 6px;
+    border-radius: 0;
 }
 
 .__BASECLASS__-downloader-progressbar-line.__BASECLASS__-downloader-progressbar-line-err {
@@ -1902,9 +1902,9 @@ p.__BASECLASS__-options-notice {
 .__BASECLASS__-FavItem-video-nopreview {
     width: 60px;
     height: 40px;
-    border-radius: 3px;
+    border-radius: 0;
     position: absolute;
-    background: #ff7600;
+    background: #e0393e;
     /* margin: 50vh auto 0; */
     margin: 0 auto;
     left: 50%;
@@ -1918,13 +1918,13 @@ p.__BASECLASS__-options-notice {
     border-width: 20px;
     border-style: solid;
     border-color: rgba(0, 0, 0, 0);
-    border-right-color: #ff7600;
+    border-right-color: #e0393e;
     position: absolute;
     right: -20px;
     border-right-width: 40px;
     top: 0px;
-    border-top-right-radius: 4px;
-    border-bottom-right-radius: 4px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
 }
 
 .__BASECLASS__-FavItem-video-nopreview:before {
@@ -1934,7 +1934,7 @@ p.__BASECLASS__-options-notice {
     width: 100px;
     bottom: -10px;
     font-weight: bold;
-    color: #ff7600;
+    color: #e0393e;
 }
 
 /* toolbar */
@@ -2008,7 +2008,7 @@ p.__BASECLASS__-options-notice {
     margin-top: 3px;
     margin-top: 3px;
     overflow: hidden;
-    border-radius: 4px;
+    border-radius: 0;
     cursor : pointer;
     margin-right: 12px;
 }
@@ -2073,7 +2073,7 @@ p.__BASECLASS__-options-notice {
     width: 19px;
     height: 19px;
     background: #5d5d5d;
-    border-radius: 33px;
+    border-radius: 0;
     position: relative;
     margin-top: 3px;
     cursor : pointer;
@@ -2118,7 +2118,7 @@ p.__BASECLASS__-options-notice {
     top: 2px;
     width: 9px;
     height: 15px;
-    border-radius: 5px 5px 0 0;
+    border-radius: 0;
     background: #ffffff;
 }
 
@@ -2160,7 +2160,7 @@ p.__BASECLASS__-options-notice {
 }
 
 .__BASECLASS__-FavItem-download-enabled:checked+label:before {
-    background-color: #ff8509;
+    background-color: #e0393e;
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%23fff' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3e%3c/svg%3e");
     content: "";
     display: block;
@@ -2181,12 +2181,12 @@ p.__BASECLASS__-options-notice {
     display: block;
     /* width: 30px; */
     height: 30px;
-    background: #ffa560;
+    background: #e0393e;
     line-height: 30px;
     vertical-align: middle;
     text-align: center;
-    border-top-left-radius: 4px;
-    border-top-right-radius: 4px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
     color : #000;  
     cursor: pointer;
 }
@@ -2233,7 +2233,7 @@ div.__BASECLASS__-FavItemsCount {
     font-size: 12px;
     line-height: 1.2;
     background: rgba(237, 85, 0, 0.58039);
-    border-radius: 6px;
+    border-radius: 0;
     line-height: 14px;
     height: 14px;
     padding-left: 3px;
@@ -2248,7 +2248,7 @@ div.__BASECLASS__-FavItemsCount {
 div.__BASECLASS__-FavItemsCount.__BASECLASS__-FavItemsCount-1 {
     right: -6px;
     min-width: 14px;
-    border-radius: 7px;
+    border-radius: 0;
 }
 
 div.__BASECLASS__-FavItemsCount.__BASECLASS__-FavItemsCount-10 {
@@ -2279,7 +2279,7 @@ div.__BASECLASS__-MainMenuItem.__BASECLASS__-MainMenuItem-fav:hover .__BASECLASS
     height: 32px;
     line-height: 32px;
     padding: 0 12px;
-    background: #ff8509;
+    background: #e0393e;
 }
 
 .__BASECLASS__-sidebar-wrap.__BASECLASS__-inline {
@@ -2296,4 +2296,23 @@ div.__BASECLASS__-MainMenuItem.__BASECLASS__-MainMenuItem-fav:hover .__BASECLASS
     height: 32px;
     line-height: 32px;
     padding: 0;
+}
+
+/* light theme: readable text on red active states (dark.css overrides these when the dark theme is on) */
+
+.__BASECLASS__-tab-list ul li.active a,
+.__BASECLASS__-MainMenuItem.active a,
+li.__BASECLASS__-additions-menu-item-li.__BASECLASS__-additions-active a,
+.__BASECLASS__-section-header-inline,
+.__BASECLASS__-Main-download-btn,
+.__BASECLASS__-preview-dimensions,
+.__BASECLASS__-ModalBox-addition .__BASECLASS__-buttons button {
+    color : #fff;
+}
+
+.__BASECLASS__Add, .__BASECLASS__Add:hover,
+.__BASECLASS__-FiltersMenu > li > button.active,
+.__BASECLASS__-exporter-button-addtoprofile,
+.__BASECLASS__-FavItem-download-number {
+    color : #fff;
 }

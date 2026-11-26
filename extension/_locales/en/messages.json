@@ -33,13 +33,16 @@
         "message":"Additions"
     },
     "additions_Donate":{  
-        "message":"About project"
+        "message":"About"
     },
     "additions_modules":{  
         "message":"Enabled site modules"
     },
     "additions_help":{  
         "message":"Help"
+    },
+    "additions_donate":{
+        "message":"Credits"
     },
     "additions_about":{
         "message":"Links and related documents"
@@ -608,8 +611,11 @@
     "fav_list_empty":{  
         "message":"List of images is empty"
     },      
+    "tab_unavailable": {
+        "message":"This tab can't be read. Reload the page and try again."
+    },
     "link_support": {
-        "message":"About project"
+        "message":"About"
     },
     "link_report_issue": {
         "message":"Report problem"

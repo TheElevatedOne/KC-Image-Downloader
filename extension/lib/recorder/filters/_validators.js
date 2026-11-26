@@ -1,4 +1,3 @@
-KellyPageWatchdog.validators.push({url : 'catface.ru', host : 'catface.ru', patterns : [['catface.ru/get', 'imageOriginal'], ['/userfiles/media/previews', 'imagePreview'] ]});
 KellyPageWatchdog.validators.push({url : 'patreon.com', host : 'patreon.com', patterns : [['patreon-media/p/post/', 'imageAny']]});
 KellyPageWatchdog.validators.push({url : 'pinterest.', host : ['pinterest.com', 'pinterest.ru'],  patterns : [['/originals/', 'imageOriginal'], ['i.pinimg.com/474x', 'imagePreview'], ['i.pinimg.com/736x', 'imagePreview'], ['i.pinimg.com/236x', 'imagePreview']]});
 
@@ -11,7 +10,7 @@ KellyPageWatchdog.validators.push({url : 'sankakucomplex.com', host : ['sankakuc
 KellyPageWatchdog.validators.push({url : 'boards.4channel.org', host : ['4chan.org', '4channel.org'], patterns : [[new RegExp('//i.4cdn.org/[a-zA-Z0-9]+/[0-9]+s\\.[a-zA-Z]+'), 'imagePreview'], [new RegExp('//i.4cdn.org/[a-zA-Z0-9]+/[0-9]+\\.[a-zA-Z]+'), 'imageOriginal']]});
 
 KellyPageWatchdog.filtersHelp.push({host : 'vk.com', link : 'https://www.youtube.com/watch?v=XpXhwndWYyg', loc : 'help_vk'});
-KellyPageWatchdog.filtersHelp.push({host : 'twitter.com', link : 'https://www.youtube.com/watch?v=x1-kqKMnMmA', loc : 'help_twitter'});
+KellyPageWatchdog.filtersHelp.push({host : ['twitter.com', 'x.com'], link : 'https://www.youtube.com/watch?v=x1-kqKMnMmA', loc : 'help_twitter'});
 KellyPageWatchdog.filtersHelp.push({host : 'pixiv.net', link : 'https://www.youtube.com/watch?v=1Nivs34BDbI', loc : 'help_pixiv'});
 KellyPageWatchdog.filtersHelp.push({host : 'pinterest.com', link : 'https://www.youtube.com/watch?v=ImKbC_1Oz8c', loc : 'help_pinterest'});
 KellyPageWatchdog.filtersHelp.push({host : 'deviantart.com', link : 'https://www.youtube.com/watch?v=O3JDEhig0P8', loc : 'help_deviantart'});
