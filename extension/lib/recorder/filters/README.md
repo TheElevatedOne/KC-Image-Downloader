@@ -63,5 +63,7 @@ blocking hook, returning anything other than `undefined` stops the other filters
 | `onBeforeDownloadValidate` | yes | `{dm, arrayBuffer, contentType, url, onReady}` | inspect or replace downloaded data before saving |
 | `onInitDownloader`, `onInitDocLoader`, `onInitOptions`, `onImagesGridReady`, `onRecorderImagesShow`, `onUpdateImagesBlock` | no | varies | downloader page UI events |
 
+A filter without `manifest.host` runs on every site; `wix.js` uses that to match Wix images by their CDN URL.
+
 The existing filters in this folder are the best reference: `bsky.js` and `9gag.js` are short, `pixiv.js` and
 `reddit.js` load related documents, `twitter.js` uses page options.

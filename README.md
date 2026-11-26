@@ -26,7 +26,8 @@ proportions or URL. On supported sites it picks the original image instead of th
 - **Several tabs at once** – the **+** button collects from the tabs to the left, to the right, or all tabs.
 - **Originals instead of previews** – site filters for Twitter/X, Pixiv, Pinterest, DeviantArt, ArtStation, Reddit,
   Bluesky, Instagram, Flickr, Kemono/Coomer/Pawchive, e-hentai, Hentai Foundry, 9GAG, Discord, VK, Pikabu, Yandex and more
-  ([`extension/lib/recorder/filters/`](extension/lib/recorder/filters/)).
+  ([`extension/lib/recorder/filters/`](extension/lib/recorder/filters/)). Sites built with Wix, on any domain, get
+  the full-size upload instead of the blurred placeholder or resized copy that the page shows.
 - **Load related documents** – when a page only shows thumbnails, the downloader can open the page each thumbnail
   links to and take the full image from there. The request rate is limited in **Options → Main options**.
 - **Light and dark theme** – follows the system theme on first run; switch it with the moon button in the bottom
@@ -142,6 +143,7 @@ need a small filter script. Both are described in
 - Light theme recoloured to match the dark one, square corners everywhere, system font in the popup, theme
   follows the system on first run.
 - Links to the dead project sites point to GitHub; the About page is a short credits page.
+- New Wix filter: full-size originals from `static.wixstatic.com` on any Wix site.
 - Renamed to KC Image Downloader, with a new icon (a stack of pictures and a download arrow) instead of the floppy disk.
 
 ## Reporting problems

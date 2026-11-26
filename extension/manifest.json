@@ -85,6 +85,7 @@
                 "lib/recorder/filters/hfoundry.js",
                 "lib/recorder/filters/yandex.js",
                 "lib/recorder/filters/discord.js",
+                "lib/recorder/filters/wix.js",
                 "lib/recorder/filters/_validators.js",
                 "lib/profiles/default.js",
                 "lib/profiles/recorder.js",
