@@ -49,14 +49,36 @@ git clone https://github.com/TheElevatedOne/KC-Image-Downloader.git
 1. Open `chrome://extensions` and turn on **Developer mode**.
 2. Click **Load unpacked** and select the `extension/` folder.
 
-### From source (Firefox)
+### Firefox
 
-1. Open `about:debugging#/runtime/this-firefox`.
-2. Click **Load Temporary Add-on…** and select `extension/manifest.json`.
+Release and ESR Firefox only install add-ons signed by Mozilla. Installing the plain zip fails with
+"This add-on could not be installed because it has not been verified", and `xpinstall.signatures.required` is
+ignored there.
 
-A temporary add-on is removed when Firefox restarts. To keep it installed, the zip has to be signed by Mozilla
-(for example as an unlisted add-on on [addons.mozilla.org][amo-submit]); Firefox Developer Edition and Nightly can
-install unsigned zips with `xpinstall.signatures.required` set to `false` in `about:config`.
+- **Signed build (permanent):** download `kc-image-downloader-<version>-firefox.xpi` from the
+  [releases][releases] or from the **Build And Release** workflow run, then open it in Firefox (or drag it onto a
+  Firefox window).
+- **Temporary, for testing:** open `about:debugging#/runtime/this-firefox`, click **Load Temporary Add-on…** and
+  select `extension/manifest.json`. Firefox removes it when it restarts.
+- **Developer Edition or Nightly:** set `xpinstall.signatures.required` to `false` in `about:config`; then the
+  unsigned `-firefox.zip` installs from **about:addons → ⚙ → Install Add-on From File…**.
+
+#### Signing (maintainers)
+
+The workflow signs the Firefox build as an *unlisted* add-on: Mozilla signs it automatically, and it is not listed
+on addons.mozilla.org. One-time setup:
+
+1. Sign in at [addons.mozilla.org][amo-keys] and generate API credentials.
+2. Add them to the repository as secrets:
+
+   ```sh
+   gh secret set AMO_JWT_ISSUER -R TheElevatedOne/KC-Image-Downloader
+   gh secret set AMO_JWT_SECRET -R TheElevatedOne/KC-Image-Downloader
+   ```
+
+3. Run the workflow (`gh workflow run build-and-release.yml -R TheElevatedOne/KC-Image-Downloader`) or push a
+   tag. Mozilla signs each version only once, so bump `version` in `extension/manifest.json` before signing
+   again.
 
 ### Building
 
@@ -138,4 +160,5 @@ version, and what you expected to be downloaded. For errors, open the downloader
 
 [upstream]: https://github.com/NC22/KellyC-Image-Downloader
 [issues]: https://github.com/TheElevatedOne/KC-Image-Downloader/issues
-[amo-submit]: https://addons.mozilla.org/developers/addon/submit/distribution
+[amo-keys]: https://addons.mozilla.org/developers/addon/api/key/
+[releases]: https://github.com/TheElevatedOne/KC-Image-Downloader/releases
