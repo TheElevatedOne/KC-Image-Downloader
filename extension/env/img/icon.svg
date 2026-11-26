@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128">
+  <!-- KC Image Downloader: a stack of pictures being downloaded -->
+  <rect width="128" height="128" fill="#e0393e"/>
+  <!-- back picture of the stack -->
+  <rect x="35" y="15" width="78" height="60" fill="none" stroke="#ffffff" stroke-width="7"/>
+  <!-- front picture -->
+  <rect x="11" y="33" width="82" height="64" fill="#ffffff"/>
+  <circle cx="72" cy="51" r="8" fill="#e0393e"/>
+  <polygon points="19,89 43,56 58,75 66,66 85,89" fill="#e0393e"/>
+  <!-- download badge -->
+  <rect x="67" y="67" width="61" height="61" fill="#1d1d1f"/>
+  <rect x="67" y="67" width="61" height="61" fill="none" stroke="#e0393e" stroke-width="6"/>
+  <polygon points="92,78 103,78 103,95 113,95 97.5,111 82,95 92,95" fill="#ffffff"/>
+  <rect x="82" y="113" width="31" height="5" fill="#ffffff"/>
+</svg>

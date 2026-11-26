@@ -1,14 +1,14 @@
-# KellyC Image Downloader
+# KC Image Downloader
 
 ![Static Badge](https://img.shields.io/badge/CLAUDE-VIBECODED?style=for-the-badge&logo=claude&label=VIBECODED&labelColor=%23333333&color=%23de7356)
 
-<p align="center"><img src="extension/env/img/icon128x128.png" alt="KellyC Image Downloader icon" width="128"></p>
+<p align="center"><img src="extension/env/img/icon128x128.png" alt="KC Image Downloader icon: a stack of pictures with a download arrow" width="128"></p>
 
 A browser extension for Chrome and Firefox that batch-downloads images from any site. You can filter them by size,
 proportions or URL. On supported sites it picks the original image instead of the preview.
 
 > [!NOTE]
-> This is a maintained fork of [NC22/KellyC-Image-Downloader][upstream] by nradiowave. The original was removed
+> This is a maintained fork of KellyC Image Downloader ([NC22/KellyC-Image-Downloader][upstream]) by nradiowave. The original was removed
 > from the Chrome, Firefox, Edge and Opera stores and its websites (`kellydownloader.com`, `catface.ru`) are offline.
 > There is no store listing for this fork; install it from source or a release zip as shown below.
 
@@ -74,6 +74,9 @@ Node is installed, and zips `extension/` once per browser. Both browsers use the
 Chrome runs `extension/background.js` as a service worker, and Firefox loads the same files from
 `background.scripts`.
 
+The icons are drawn in `extension/env/img/icon.svg` (32, 48 and 128 px) and `icon16.svg` (a simpler 16 px version).
+After editing them, run `./icons.sh` (needs `rsvg-convert` from librsvg) to render the PNGs.
+
 ## Quick start
 
 1. Open a page with images and click the extension icon.
@@ -117,6 +120,7 @@ need a small filter script. Both are described in
 - Light theme recoloured to match the dark one, square corners everywhere, system font in the popup, theme
   follows the system on first run.
 - Links to the dead project sites point to GitHub; the About page is a short credits page.
+- Renamed to KC Image Downloader, with a new icon (a stack of pictures and a download arrow) instead of the floppy disk.
 
 ## Reporting problems
 
