@@ -115,7 +115,7 @@ function KellyFavStorageManager(cfg) {
             
             handler.getDBSize(dbName, function(dbName, size) {
                 
-                KellyTools.getElementByClass(handler.storageList, handler.className + '-' + dbName).innerText = parseFloat(size).toFixed(2) + 'кб';
+                KellyTools.getElementByClass(handler.storageList, handler.className + '-' + dbName).innerText = parseFloat(size).toFixed(2) + lng.s('kb', 'kb');
                 
                 handler.envTotalKb += size;
                 itemsLoaded++;
@@ -318,7 +318,7 @@ function KellyFavStorageManager(cfg) {
             
             var dbName = KellyTools.inputVal(document.getElementById(idPrefix + '-create-name')); // todo validate by regular    
             if (!dbName) {
-                handler.showMessage(lng.s('Введите название базы данных', 'storage_empty_name'), true);
+                handler.showMessage(lng.s('Enter the database name', 'storage_empty_name'), true);
                 return false;
             }
                         
@@ -605,19 +605,19 @@ function KellyFavStorageManager(cfg) {
                 
                 var dbName = KellyTools.inputVal(document.getElementById(idPrefix + '-delete-name'));     
                 if (!dbName) {
-                    handler.showMessage('Введите название базы данных', true, 'delete');
+                    handler.showMessage('Enter the database name', true, 'delete');
                     return false;
                 }
                 
                 if (handler.slist && handler.slist.indexOf(dbName) == -1) {
                     
-                    handler.showMessage('Базы данных не существует', true, 'delete');
+                    handler.showMessage('The database does not exist', true, 'delete');
                     return false;                    
                 }
                 
                 handler.removeDB(dbName, function(error) {
                     
-                    handler.showMessage('Данные удалены', false, 'delete');                    
+                    handler.showMessage('Data deleted', false, 'delete');                    
                     handler.getStorageList(handler.showStorageList);
                 });    
                 

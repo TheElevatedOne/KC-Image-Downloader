@@ -190,8 +190,8 @@ function KellyFastSave(cfg) {
                     <!--p>#CURRENT_LOCATION#, #PUBLICATION_HOME#</p-->\
                     <p><input type="text" placeholder="' + KellyLoc.s('Сохранять в папку', 'fast_save_to') + '" value="' + baseFolder + '" class="' + baseClass + 'download-folder"></p>\
                     <p>\
-                        <a href="#" data-quality="hd" class="' + baseClass + 'download-hd ' + (lastQuality == 'hd' ? 'active' : '')+ '">' + KellyLoc.s('Скачать оригинал (HD)', 'dowload_hd') + '</a>\
-                        <a href="#" data-quality="preview" class="' + baseClass + 'download ' + (lastQuality != 'hd' ? 'active' : '')+ '">' + KellyLoc.s('Скачать превью', 'dowload_preview') + '</a>\
+                        <a href="#" data-quality="hd" class="' + baseClass + 'download-hd ' + (lastQuality == 'hd' ? 'active' : '')+ '">' + KellyLoc.s('Скачать оригинал (HD)', 'download_hd') + '</a>\
+                        <a href="#" data-quality="preview" class="' + baseClass + 'download ' + (lastQuality != 'hd' ? 'active' : '')+ '">' + KellyLoc.s('Скачать превью', 'download_preview') + '</a>\
                     </p>\
                 </div>\
             </div>';

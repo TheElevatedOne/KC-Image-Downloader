@@ -84,7 +84,7 @@ KellyPopupPage.recordTabList = function(tabs, onReady) {
             KellyPopupPage.buttons['download_record'].event(false, function() {
                 
                 if (imagesNum <= 0) {
-                    KellyPopupPage.updateNotice("На текущих вкладках нет изображений");
+                    KellyPopupPage.updateNotice("No images found on the current tabs");
                 }
                 
                 if (onReady) onReady();
@@ -100,7 +100,7 @@ KellyPopupPage.recordTabList = function(tabs, onReady) {
     }
     
     if (tabs.length <= 0) {
-        KellyPopupPage.updateNotice("Нет вкладок доступных расширению");
+        KellyPopupPage.updateNotice("No tabs are available to the extension");
         return;
     } 
     

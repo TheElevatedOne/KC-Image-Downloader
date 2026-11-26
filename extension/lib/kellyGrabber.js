@@ -371,8 +371,8 @@ function KellyGrabber(cfg) {
                     <!--tr class="' + className + '-range-tr"><td>\
                         <span>' + lng.s('Диапазон', 'grabber_range') + '</span>\
                     </td><td>\
-                        <input type="text" placeholder="С" class="' + className + '-from" value="">\
-                        <input type="text" placeholder="По" class="' + className + '-to" value="">\
+                        <input type="text" placeholder="From" class="' + className + '-from" value="">\
+                        <input type="text" placeholder="To" class="' + className + '-to" value="">\
                     </td></tr-->\
                     <tr class="' + className + '-quality-tr"><td colspan="2">\
                         <label><input type="radio" name="' + className + '_image_size[]" value="hd" class="' + className + '-quality" ' + (options.quality == 'hd' ? 'checked' : '') + '>' + lng.s('Оригинал', 'grabber_source') + '</label>\
@@ -1066,7 +1066,7 @@ function KellyGrabber(cfg) {
                 if (options.manualExclude) {
                     html += '\
                      <input type="checkbox" class="' + imageClassName + '-download-enabled" data-no-tip="1" id="' + downloadItemId + '-download-enabled" name="' + downloadItemId + '-download-enabled" ' + (manualExcludeItems.indexOf(i) != -1 ? '' : 'checked') + (mode == 'download' ? ' disabled' : '') + '>\
-                    <label title="Включить картинку в список выгрузки" class="' + imageClassName + '-download-enabled-label" data-no-tip="1" for="' + downloadItemId + '-download-enabled"></label>\
+                    <label title="Include this image in the download" class="' + imageClassName + '-download-enabled-label" data-no-tip="1" for="' + downloadItemId + '-download-enabled"></label>\
                     ';
                 }
                   
@@ -1292,10 +1292,10 @@ function KellyGrabber(cfg) {
                       
                 if (error) {
                     
-                    var errorText = 'Системная ошибка : ' + error;
+                    var errorText = 'System error: ' + error;
                     
                     if (error == 'USER_CANCELED') {
-                        errorText = 'Загрузка прервана (проверьте настройку "Всегда указывать место для скачивания")';
+                        errorText = 'Download interrupted (check the browser setting "Ask where to save each file before downloading")';
                     }
                     
                     addFailItem(downloadItem, errorText); 
@@ -1453,7 +1453,7 @@ function KellyGrabber(cfg) {
                
         if (!ditem.url || ditem.url.length < 6) {
                         
-            addFailItem(ditem, 'Некорректный Url скачиваемого файла ' + ditem.url);
+            addFailItem(ditem, 'Invalid download URL ' + ditem.url);
             return false;
             
         } 
@@ -1519,7 +1519,7 @@ function KellyGrabber(cfg) {
         fileName = KellyTools.validateFolderPath(fileName);
         
         if (!fileName){
-            addFailItem(ditem, 'Ошибка валидации шаблона пути для загружаемого файла ' + ditem.url);
+            addFailItem(ditem, 'Invalid file path template for ' + ditem.url);
             return false;
         }    
         
@@ -2196,7 +2196,7 @@ function KellyGrabber(cfg) {
                     return;
                 }
                 
-                addFailItem(download, 'Ошибка загрузки ' + (response.error ? ' : ' + response.error : ''));
+                addFailItem(download, 'Download error' + (response.error ? ' : ' + response.error : ''));
                 
                 resetItem(download);
                 
@@ -2450,7 +2450,7 @@ function KellyGrabber(cfg) {
                 downloadItem.error = 'Canceled by timeout';	
                 downloadItem.canceling = true;                
                 
-                addFailItem(downloadItem, 'Завершена по таймауту');
+                addFailItem(downloadItem, 'Timed out');
                 
                 if (endSync) handler.onDownloadEnd(downloadItem);
                        
@@ -2494,8 +2494,8 @@ function KellyGrabber(cfg) {
                     
                     if (downloadItem.url == downloads[progressItems[b]].url) { 
                         
-                        var collisionCheckNotice = 'Дубликат Url или имя файла для ' + downloadItem.url + ' ';
-                            collisionCheckNotice += 'элемент #' + handler.getDownloadItemN(downloads[progressItems[b]]) + ' имеет идентичный Url';
+                        var collisionCheckNotice = 'Duplicate URL or file name for ' + downloadItem.url + ' ';
+                            collisionCheckNotice += 'item #' + handler.getDownloadItemN(downloads[progressItems[b]]) + ' has the same URL';
                             
                         addFailItem(downloadItem, collisionCheckNotice);
                         collisionCheck = false;

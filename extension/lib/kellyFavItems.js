@@ -1886,8 +1886,8 @@ function KellyFavItems(cfg)
         var html = '\
             <div class="' + env.className + '-GoToPageForm">\
                 <div>\
-                    <p><input type="text" placeholder="' + lng.s('Перейти на страницу', 'goto') + '" value="" class="' + env.className + '-GoToPage"></p>\
-                    ' + (imagesAsDownloadItems ? '<p><input type="text" placeholder="' + lng.s('Перейти к элементу', 'goton') + '" value="" class="' + env.className + '-GoToN"></p>' : '') + '\
+                    <p><input type="text" placeholder="' + lng.s('Перейти на страницу', 'goto_page') + '" value="" class="' + env.className + '-GoToPage"></p>\
+                    ' + (imagesAsDownloadItems ? '<p><input type="text" placeholder="' + lng.s('Перейти к элементу', 'goto_item') + '" value="" class="' + env.className + '-GoToN"></p>' : '') + '\
                     <p><a href="#" class="' + env.className + '-Go">' + lng.s('Перейти', 'go') + '</a></p>\
                 </div>\
             </div>';

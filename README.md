@@ -25,7 +25,7 @@ proportions or URL. On supported sites it picks the original image instead of th
   is kept in extension storage, so it survives the browser suspending the background worker.
 - **Several tabs at once** – the **+** button collects from the tabs to the left, to the right, or all tabs.
 - **Originals instead of previews** – site filters for Twitter/X, Pixiv, Pinterest, DeviantArt, ArtStation, Reddit,
-  Bluesky, Instagram, Flickr, Kemono/Coomer, e-hentai, Hentai Foundry, 9GAG, Discord, VK, Pikabu, Yandex and more
+  Bluesky, Instagram, Flickr, Kemono/Coomer/Pawchive, e-hentai, Hentai Foundry, 9GAG, Discord, VK, Pikabu, Yandex and more
   ([`extension/lib/recorder/filters/`](extension/lib/recorder/filters/)).
 - **Load related documents** – when a page only shows thumbnails, the downloader can open the page each thumbnail
   links to and take the full image from there. The request rate is limited in **Options → Main options**.
@@ -110,7 +110,10 @@ need a small filter script. Both are described in
 - Loads again: the manifests listed five joyreactor scripts that upstream had moved to a separate project in 2022.
 - One cross-browser Manifest V3 `manifest.json`, no Windows `.bat` merge step; `build.sh` makes the zips.
 - Recording no longer loses messages when Chrome wakes the suspended service worker.
-- Twitter filter works on `x.com`; Kemono/Coomer filter covers `kemono.cr`, `coomer.st` and `coomer.su`.
+- Twitter filter works on `x.com`; Kemono/Coomer filter covers `kemono.cr`, `coomer.st`, `coomer.su` and the
+  `pawchive.pw` clone.
+- English only: the Russian translation was removed, and Russian messages that were hardcoded in the popup,
+  downloader and storage manager are now in English.
 - Light theme recoloured to match the dark one, square corners everywhere, system font in the popup, theme
   follows the system on first run.
 - Links to the dead project sites point to GitHub; the About page is a short credits page.
@@ -124,7 +127,6 @@ version, and what you expected to be downloaded. For errors, open the downloader
 ## Credits
 
 - **nradiowave** ([NC22][upstream]) – original author of KellyC Image Downloader and all of its site filters.
-- Russian translation by the original author.
 
 ## License
 

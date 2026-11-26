@@ -1,7 +1,6 @@
 // related to About page
 
 var KellyCAbout = new Object();    
-    KellyCAbout.language = 'en';
     
 KellyCAbout.showPage = function(cfg) {
     
@@ -16,7 +15,7 @@ KellyCAbout.showPage = function(cfg) {
     
     if (KellyCAbout.jr) document.body.classList.add('env-jr');
     
-    handler.container = document.getElementsByClassName('notice-' + handler.language)[0];
+    handler.container = document.getElementsByClassName('notice-en')[0];
     handler.container.style.display = '';
     
     if (mode == 'update') {}
@@ -70,9 +69,6 @@ KellyCAbout.init = function()
         } else {
             KellyCAbout.jr = true;
         }
-        
-        var lang = KellyTools.getBrowser().i18n.getUILanguage();
-        if (lang.indexOf('ru') != -1) KellyCAbout.language = 'ru';
         
         KellyCAbout.initSpoilers();
         KellyCAbout.initVideos();

@@ -13,7 +13,7 @@ KellyRecorderFilterPikabu.onBeforeDownloadValidate = function(handler, data) {
         if (result.base64) {
             data.onReady(KellyTools.base64toBlob(result.base64, result.contentType), result.contentType);   
         } else {
-            data.onReady(false, false, "Способ расшифровки NSFW не сработал - " + data.url);   
+            data.onReady(false, false, "Could not decode the NSFW image - " + data.url);   
         } 
         
         byteArray = null;
@@ -47,7 +47,7 @@ KellyRecorderFilterPikabu.previewLoader = {
     refresher : function(limit) {
         
         var info = document.getElementById('pikabu-decode-counter');
-        info.innerText = 'Осталось расшифровать : ' + (KellyRecorderFilterPikabu.previewLoader.images.length + KellyRecorderFilterPikabu.previewLoader.work.length);
+        info.innerText = 'Left to decode: ' + (KellyRecorderFilterPikabu.previewLoader.images.length + KellyRecorderFilterPikabu.previewLoader.work.length);
         
         if (KellyRecorderFilterPikabu.previewLoader.done >= limit) {
             K_FAV.updateImagesBlock();                
@@ -155,20 +155,20 @@ KellyRecorderFilterPikabu.onRecorderImagesShow = function(handler, data) {
             KellyRecorderFilterPikabu.tooltip = KellyTools.getNoticeTooltip(KellyDPage.env.hostClass, KellyDPage.env.className); 
             KellyRecorderFilterPikabu.tooltip.updateCfg({removeOnClose : false, closeByBody : false});
             
-            KellyTools.setHTMLData(KellyRecorderFilterPikabu.tooltip.getContent(), '<div><b>Расшифровка превью контента : </b> [<a href="#" id="pikabu-decode-stop">Остановить</a>]</div><div id="pikabu-decode-counter">Инициализация...</div><div>На странице обнаружены <b>NSFW</b> картинки которые сайт отдает в зашифрованном виде, необязательно дожидатся расшифровки превью, данные будут дешифрованы при скачивании</div>'); 
+            KellyTools.setHTMLData(KellyRecorderFilterPikabu.tooltip.getContent(), '<div><b>Decoding previews: </b> [<a href="#" id="pikabu-decode-stop">Stop</a>]</div><div id="pikabu-decode-counter">Starting...</div><div>This page has <b>NSFW</b> images that the site serves scrambled. You don\'t have to wait for the previews; the images are decoded when they are downloaded.</div>'); 
             
             document.getElementById('pikabu-decode-stop').onclick = function() {
                 
                 if (this.getAttribute('data-stoped') == '1') {
                     
                     this.setAttribute('data-stoped', '0');
-                    this.innerText = 'Остановить';
+                    this.innerText = 'Stop';
                     KellyRecorderFilterPikabu.previewLoader.all = [];
                     KellyRecorderFilterPikabu.previewLoader.decodeCurrentPage();
                    
                 } else {
                     this.setAttribute('data-stoped', '1');
-                    this.innerText = 'Начать';
+                    this.innerText = 'Start';
                     KellyRecorderFilterPikabu.previewLoader.abort();
                 }
                 

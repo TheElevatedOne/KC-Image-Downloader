@@ -41,16 +41,6 @@ KellyAdditionsForm = {
              
              var curP = favEnv.getGlobal('env'), options = favEnv.getGlobal('options'), bcEnv = curP.className, bc = bcEnv + '-additions';
              
-             var languages = ['en', 'ru'], defaultLangugage = KellyLoc.detectLanguage();
-             
-             for (var i = 0; i < languages.length; i++) {
-                 if (defaultLangugage.indexOf(languages[i]) == -1) {
-                     css += '.' + bc + '-language-' + languages[i] + ' { display : none; }'; 
-                 }
-             }
-             
-             KellyTools.addCss(bc + '-language', css);
-             
              KellyTools.tplClass = bc;
              
              for (var i = 0; i < pModules.length; i++) {

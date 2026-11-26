@@ -539,6 +539,9 @@
     "goto_page":{  
         "message":"Go to page"
     },
+    "goto_item":{  
+        "message":"Go to item"
+    },
     "go":{  
         "message":"Go"
     },  
