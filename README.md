@@ -88,8 +88,8 @@ on addons.mozilla.org. One-time setup:
 ```
 
 ```text
-dist/kc-image-downloader-1.3.0-chrome.zip
-dist/kc-image-downloader-1.3.0-firefox.zip
+dist/kc-image-downloader-1.3.1-chrome.zip
+dist/kc-image-downloader-1.3.1-firefox.zip
 ```
 
 The script checks that every script in `extension/manifest.json` exists, runs `node --check` on all JavaScript when
